@@ -2,15 +2,13 @@
 #include <string>
 using namespace std;
 
-// Структура для хранения информации о поезде
 struct Train {
-    int number; // Номер поезда
-    string destination; // Станция назначения
-    string departureTime;  // Время отправления
-    Train* next; // Указатель на следующий элемент в списке
+    int number;   //номер поезда
+    string destination;    //станция назначения
+    string departureTime;    //время отправления
+    Train* next;   //следующий элемент в списке
 };
 
-// Функция для добавления нового поезда в список
 void addTrain(Train* &head, int number, string destination, string departureTime) {
     Train* newTrain = new Train; // Создание нового элемента типа Train
     newTrain->number = number;  // Заполнение номера поезда
