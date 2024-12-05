@@ -1,6 +1,6 @@
 #include "sort.h"
 
-static int C = 0, M = 0;
+static int C = 0, M = 0;  //с- количество сравнений, м- количество операций присваивания
 
 void heap_max(int* arr, int size, int i)
 {
@@ -29,8 +29,9 @@ void heap_max(int* arr, int size, int i)
         heap_max(arr, size, large);
     }
 }
-
-void heap_sort_increase(int* arr, int size)
+ /*строится максимальная куча от size / 2 - 1 до 0, корень помещается в конец массива
+Размер кучи -1, вызывается heap_max, чтобы восстановить свойства кучи для оставшихся элементов.*/
+void heap_sort_increase(int* arr, int size)  
 {
     int temp;
     for(int i = size / 2 - 1; i >= 0; i--)
