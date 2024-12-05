@@ -8,14 +8,13 @@ int main()
 
     fgets(str, 30, stdin);
 
-    while(!(Is_Number(str) || string_to_int(str) <= 0))
+    while(!(Is_Number(str) || string_to_int(str) <= 0))   //значение - положительное число
     {
         printf(RED"Dumb protection activated. Try again: "RESET);
         fgets(str, 30, stdin);
     }   
 
     int size = string_to_int(str);
-
     int arr[size];
 
     printf("Select filling method:\n1.Random number\n2.From the keyboard\n");
@@ -53,7 +52,6 @@ int main()
         case 1:
             heap_sort_increase(arr, size);
         break;
-
         case 2:
             heap_sort_decrease(arr, size);
         break;
@@ -104,9 +102,5 @@ int main()
                 shakerSort_decrease(arr, size);
             break;
     };
-
     OutArray(arr, size);
-
-
-
 }
