@@ -3,22 +3,21 @@
 using namespace std;
 
 struct Train {
-    int number;   //номер поезда
+    int number;          //номер поезда
     string destination;    //станция назначения
     string departureTime;    //время отправления
-    Train* next;   //следующий элемент в списке
+    Train* next;   
 };
 
 void addTrain(Train* &head, int number, string destination, string departureTime) {
-    Train* newTrain = new Train; // Создание нового элемента типа Train
-    newTrain->number = number;  // Заполнение номера поезда
-    newTrain->destination = destination; // Заполнение станции назначения
-    newTrain->departureTime = departureTime; // Заполнение времени отправления
-    newTrain->next = head; // Присвоение указателю на следующий элемент текущего значения головы списка
-    head = newTrain; // Обновление головы списка
+    Train* newTrain = new Train;            
+    newTrain->number = number;              
+    newTrain->destination = destination;            
+    newTrain->departureTime = departureTime;              
+    newTrain->next = head;               //присвоение указателю на следующий элемент текущего значения головы списка
+    head = newTrain;                     //обновление головы списка
 }
 
-// Функция для вывода всего списка
 void printTrains(Train* head) {
     Train* current = head;
     while (current != nullptr) {
@@ -27,7 +26,6 @@ void printTrains(Train* head) {
     }
 }
 
-// Функция для вывода информации о конкретном поезде
 void findTrain(Train* head, int number) {
     Train* current = head;
     while (current != nullptr) {
@@ -40,7 +38,6 @@ void findTrain(Train* head, int number) {
     cout << "Поезд с указанным номером не найден." << endl;
 }
 
-// Функция для вывода списка поездов до указанной станции назначения
 void findTrainsToDestination(Train* head, string destination) {
     Train* current = head;
     while (current != nullptr) {
@@ -54,7 +51,6 @@ void findTrainsToDestination(Train* head, string destination) {
 int main() {
     Train* trains = nullptr;
 
-    // Добавление данных в информационную систему
     addTrain(trains, 1001, "Москва", "08:00");
     addTrain(trains, 1002, "Санкт-Петербург", "09:30");
     addTrain(trains, 1003, "Екатеринбург", "12:45");
@@ -62,17 +58,14 @@ int main() {
     addTrain(trains, 1005, "Владивосток", "18:10");
     addTrain(trains, 1006, "Владивосток", "20:20");
 
-    // Вывод всего списка
     cout << "Список поездов:" << endl;
     printTrains(trains);
 
-    // Поиск информации о конкретном поезде по его номеру
     int trainNumber;
     cout << "Введите номер поезда: ";
     cin >> trainNumber;
     findTrain(trains, trainNumber);
 
-    // Поиск поездов до указанной станции назначения
     string destination;
     cout << "Введите станцию назначения: ";
     cin >> destination;
