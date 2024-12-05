@@ -1,16 +1,14 @@
 #include "sort.h"
 
-
 void include_sort_increase(int *arr, int size)
 {
-    int C = 0;
-    int M = 0;
-    int tmp;
+    int C = 0;  //счетчик операций сравнения
+    int M = 0;  //счетчик операций перемещения 
+    int tmp;  
     for(int i = 1; i < size; i++)
     {
-        int index = i;
-
-        int value = arr[i];
+        int index = i;  //поиск правильной позиции
+        int value = arr[i];  //временная переменная
 
         while((index > 0) && (arr[index - 1] > value))
         {
@@ -22,12 +20,8 @@ void include_sort_increase(int *arr, int size)
 
         arr[index] = value;
         M++;
-        
-
     }
-
     printf("C = %d\nM = %d\n", C, M);
-
 }
 
 void include_sort_decrease(int *arr, int size)
@@ -38,7 +32,6 @@ void include_sort_decrease(int *arr, int size)
     for(int i = 1; i < size; i++)
     {
         int index = i;
-
         int value = arr[i];
 
         while((index > 0) && (arr[index - 1] < value))
@@ -51,11 +44,7 @@ void include_sort_decrease(int *arr, int size)
 
         arr[index] = value;
         M++;
-        
-
     }
-
     printf("C = %d\nM = %d\n", C, M);
-
 }
 
