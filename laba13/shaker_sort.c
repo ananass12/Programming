@@ -1,11 +1,11 @@
 #include "sort.h"
 
 void shakerSort_increase(int arr[], int size) {
-    int C = 0;
-    int M = 0;
-    int left = 0;
-    int right = size - 1;
-    int swapped = 1;
+    int C = 0;    //счетчик операций сравнения
+    int M = 0;    //счетчик операций перемещения
+    int left = 0;    //индекс начала неотсортированной части
+    int right = size - 1;   //индекс конца неотсортированной части 
+    int swapped = 1;  //флаг, указывающий, были ли произведены обмены во время последней итерации
 
     while (left < right && swapped) {
         swapped = 0;
