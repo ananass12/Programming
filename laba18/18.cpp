@@ -6,36 +6,29 @@
 
 using namespace std;
 
-// Класс для квадратов
-class Square {
+class Square {        
 private:
-    double side; // Длина стороны квадрата
+    double side;       
 
 public:
-    // Конструктор
-    Square(double side) : side(side) {}
+    Square(double side) : side(side) {}       
 
-    // Метод для получения длины стороны квадрата
-    double Side() const {
+    double Side() const {            //методы класса
         return side;
     }
 
-    // Метод вычисления диагонали
     double diagonal() const {
         return sqrt(2) * side;
     }
 
-    // Метод вычисления периметра
     double perimeter() const {
         return 4 * side;
     }
 
-    // Метод вычисления площади
     double area() const {
         return side * side;
     }
 
-    // Метод для вывода информации о квадрате
     void outputTo() const {
         cout << "Квадрат: " << endl;
         cout << "Длина стороны: " << side << endl;
@@ -46,8 +39,8 @@ public:
 };
 
 int main() {
-    vector<Square> squares;
-    vector<Square> largeSquares;
+    vector<Square> squares;  
+    vector<Square> largeSquares;          //квадраты со стороной больше 50
 
     int N;
     cout << "Введите количество квадратов: ";
@@ -58,7 +51,7 @@ int main() {
         return 1;
     }
 
-    for (int i = 0; i < N; ++i) {
+    for (int i = 0; i < N; ++i) {     //добавление нового квадрата
         double side;
         cout << "Введите длину стороны квадрата " << i + 1 << ": ";
         cin >> side;
@@ -66,7 +59,6 @@ int main() {
         Square square(side);
         squares.push_back(square);
 
-        // Переписываем квадраты с площадью больше 50 в новый вектор
         if (square.area() > 50) {
             largeSquares.push_back(square);
         }
@@ -75,17 +67,14 @@ int main() {
     if (largeSquares.empty()) {
         cout << "Новый вектор пуст." << endl;
     } else {
-        // Сортировка нового вектора по длине стороны квадрата
-        sort(largeSquares.begin(), largeSquares.end(), [](const Square& a, const Square& b) {
+        sort(largeSquares.begin(), largeSquares.end(), [](const Square& a, const Square& b) {         //сортировка нового вектора по длине стороны квадрата
             return a.Side() < b.Side();
         });
 
-        // Вывод отсортированных объектов
-        for (const auto& square : largeSquares) {
+        for (const auto& square : largeSquares) {     //вывод отсортированных объектов
             square.outputTo();
             cout << endl;
         }
-    }
-
+    }    
     return 0;
 }
