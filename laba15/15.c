@@ -4,7 +4,7 @@
 struct Toy {
     char name[100];
     float price;
-    int quantity;
+    int quantity;   //количество
 };
 
 int main() {
@@ -23,12 +23,13 @@ int main() {
     };
 
     file = fopen("PRICE.dat", "wb");
+    
     if (file == NULL) {
         printf("Ошибка при создании файла.\n");
         return 1;
     }
 
-    fwrite(toys, sizeof(struct Toy), 10, file); // Записываем все игрушки в файл
+    fwrite(toys, sizeof(struct Toy), 10, file);    //запись в файл
     fclose(file);
 
     file = fopen("PRICE.dat", "rb");
@@ -40,13 +41,13 @@ int main() {
     struct Toy maxToy;
     float maxPrice = 0;
 
-    while (fread(&maxToy, sizeof(struct Toy), 1, file) == 1) {
+    while (fread(&maxToy, sizeof(struct Toy), 1, file) == 1) {   //ищем максимальную цену
         if (maxToy.price > maxPrice) {
             maxPrice = maxToy.price;
         }
     }
 
-    rewind(file);
+    rewind(file);    //указатель на начало файла
 
     printf("Самая дорогая игрушка:\n");
     while (fread(&maxToy, sizeof(struct Toy), 1, file) == 1) {
